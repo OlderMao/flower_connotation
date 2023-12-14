@@ -97,6 +97,7 @@
                 console.log(res.data)
                 if (res.data.code === '0') { // 当响应的编码为 0 时，说明注册成功
                     // 显示后端响应的成功信息
+                    window.open("../web_inf/首页.html","self")
                     alert(res.data.msg)
                 } else { // 当响应的编码不为 0 时，说明注册失败
                     // 显示后端响应的失败信息
