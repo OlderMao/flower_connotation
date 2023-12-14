@@ -18,7 +18,7 @@
                 class="input" />
             <label for="password_register"></label><input type="password" placeholder="密码" ID="password_register"
                 class="input" />
-            <label for="repassword_register"></label><input type="repassword" placeholder="重复密码"
+            <label for="repassword_register"></label><input type="password" placeholder="重复密码"
                 ID="repassword_register" class="input" />
             <label for="uemail_register"></label><input type="email" placeholder="邮箱" ID="uemail_register"
                 class="input" />
@@ -50,7 +50,7 @@
 </div>
     <!--lost-->
     <div class="box">
-    <form action="#" class="form" id="form1">
+    <form action="#" class="form" id="form0">
         <h2 class="form__title">找回密码</h2>
         <label for="uname_found"></label><input type="text" placeholder="用户名" ID="uname_found" class="input" />
         <label for="email_found"></label><input type="email" placeholder="邮箱" ID="email_found" class="input" />
@@ -60,6 +60,7 @@
     </div>
 
 <script>
+    const ip = '10.16.109.49';
     let registerButton = document.getElementById('register-button');
     // 为注册按钮添加点击事件监听器
     registerButton.addEventListener('click', function (event) {
@@ -70,7 +71,7 @@
         let password = document.getElementById('password_register').value;
         let repassword = document.getElementById('repassword_register').value;
         let email = document.getElementById('uemail_register').value;
-        if (password != repassword) {
+        if (password !== repassword) {
             alert('两次密码不一致');
             return;
         }
@@ -79,7 +80,7 @@
             return;
         }
         // 使用axios发送POST请求
-        axios.post('http://10.16.50.21:3036/user/register', {
+        axios.post('http://'+ip+':3036/user/register', {
             uname: username,
             password: password,
             email: email
@@ -108,7 +109,7 @@
         }
         // 使用axios发送POST请求
         axios({
-            url: 'http://10.16.50.21:3036/user/login',
+            url: 'http://'+ip+':3036/user/login',
             params: {
                 uname: username,
                 password: password
@@ -143,8 +144,6 @@
         box.classList.toggle('flip');
         container.classList.toggle('flip');
     });
-
-
     signInBtn.addEventListener("click", () => {
         container.classList.remove("right-panel-active");
     });
