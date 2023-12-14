@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="cn">
 
 <head>
@@ -8,20 +8,19 @@
     <link rel="stylesheet" href="../css/found.css">
 </head>
 <script src="../js/axios.js"></script>
-
 <div class="container">
     <!-- Sign Up -->
     <div class="container__form container--signup">
         <form action="#" class="form" id="form1">
             <h2 class="form__title">注册</h2>
             <label for="uname_register"></label><input type="text" placeholder="用户名" ID="uname_register"
-                                                       class="input" />
+                class="input" />
             <label for="password_register"></label><input type="password" placeholder="密码" ID="password_register"
-                                                          class="input" />
+                class="input" />
             <label for="repassword_register"></label><input type="repassword" placeholder="重复密码"
-                                                            ID="repassword_register" class="input" />
+                ID="repassword_register" class="input" />
             <label for="uemail_register"></label><input type="email" placeholder="邮箱" ID="uemail_register"
-                                                        class="input" />
+                class="input" />
             <button id="register-button" class="btn">提交注册</button>
         </form>
     </div>
@@ -68,7 +67,7 @@
             <h2 class="form__title">登录</h2>
             <label for="uname_login"></label><input type="text" placeholder="用户名" ID="uname_login" class="input" />
             <label for="password_login"></label><input type="password" placeholder="密码" ID="password_login"
-                                                       class="input"/>
+                class="input" />
             <button id="login-button" class="btn">确认登录</button>
             <button id="forgetpassword-button" class="btn">忘记密码</button>
         </form>
@@ -121,21 +120,16 @@
 </div>
 
 <div class="box">
-    <form action="#" class="form" id="form1">
+    <form action="#" class="form" id="form">
         <h2 class="form__title">找回密码</h2>
         <label for="uname_found"></label><input type="text" placeholder="用户名" ID="uname_found" class="input" />
         <label for="email_found"></label><input type="email" placeholder="邮箱" ID="email_found" class="input" />
         <button id="foundpassword-button" class="btn">找回密码</button>
-        <button id="backlogin-button" class="btn">返回登录</button>
+        <button id="backlogin-button" class="btn" type="button">返回登录</button>
     </form>
 </div>
-<script>
-    let backLoginButton = document.getElementById('backlogin-button');
-    backLoginButton.addEventListener('click', function () {
-        box.classList.toggle('flip');
-        container.classList.toggle('flip');
-    });
-</script>
+
+
 <script>
     const signInBtn = document.getElementById("signIn");
     const signUpBtn = document.getElementById("signUp");
@@ -145,12 +139,15 @@
     const box = document.querySelector(".box");
 
     let forgetPasswordButton = document.getElementById('forgetpassword-button');
-
+    let backLoginButton = document.getElementById('backlogin-button');
     forgetPasswordButton.addEventListener('click', function () {
         box.classList.toggle('flip');
         container.classList.toggle('flip');
     });
-
+    backLoginButton.addEventListener('click', function () {
+        container.classList.toggle('flip');
+        box.classList.toggle('flip');
+    });
 
     signInBtn.addEventListener("click", () => {
         container.classList.remove("right-panel-active");
